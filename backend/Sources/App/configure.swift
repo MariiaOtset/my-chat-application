@@ -2,6 +2,7 @@ import NIOSSL
 import Fluent
 import FluentPostgresDriver
 import Vapor
+import PostgreSQL
 
 // configures your application
 public func configure(_ app: Application) async throws {
@@ -19,5 +20,9 @@ public func configure(_ app: Application) async throws {
 
     app.migrations.add(CreateTodo())
     // register routes
-    try routes(app)
+ 
+
+    app.migrations.add(CreateChat())
+app.migrations.add(CreateMessage())
+   try routes(app)
 }
